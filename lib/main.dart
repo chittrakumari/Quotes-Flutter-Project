@@ -70,9 +70,15 @@ import 'quote_card.dart';
 
 
 
-        quotes.map((quote){
-      return CardWidget(quote: quote);
+        quotes.map((quote)=>CardWidget(
+          quote: quote,
+        delete:(){
+            setState(() {
+              quotes.remove(quote);
+            });
         }
+      )
+
       ).toList(),
 
         ),

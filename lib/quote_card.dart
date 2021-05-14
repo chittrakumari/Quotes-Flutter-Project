@@ -5,7 +5,9 @@ class CardWidget extends StatelessWidget {
 
 
   final Quote quote;
-  CardWidget({ required this.quote});
+  final Function delete;
+  CardWidget({ required this.quote, required this.delete });
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CardWidget extends StatelessWidget {
         child:Padding(
           padding: EdgeInsets.all(12.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text(quote.text,
                 style: TextStyle(
@@ -38,6 +40,15 @@ class CardWidget extends StatelessWidget {
 
                 ),
               ),
+              SizedBox(height: 8.0),
+               FlatButton.icon(
+                   onPressed: (){
+
+                     delete();
+                   },
+                 icon: Icon(Icons.delete),
+                 label:Text('delete quote'),
+               )
             ],
           ),
         )
